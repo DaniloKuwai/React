@@ -1,0 +1,39 @@
+Agora vamos conhecer o JSX que vai facilitar na hora de escrever nosso código, simplificando
+muitas sintaxes. Exemplo da aula passada:
+
+ReactDOM.render('Olá React!!!!',el)
+
+Se caso nós pegassemos diretamente o 
+
+render('Olá React') e colocarmos ele entre divs, ele sairia escrito dessa forma na tela:
+
+<div> 'Olá React' </div>,
+
+Por esse motivo vamos utilizar o jsx, porém para utilizar sempre temos que importar a biblioteca
+ do React
+
+Para importar usamos o seguinte comando:
+
+import React from 'react'
+
+
+const el = document.getElementById('root')
+
+ReactDOM.render(
+    <div>Olá React</div>,
+    el
+    )
+
+Importando dessa forma ele vai aparecer apenas Olá React
+
+Um outro exemplo que podemos fazer seria dessa forma:
+
+const tag = <strong>Olá React!</strong>
+const el = document.getElementById('root')
+ReactDOM.render(
+    <div>{tag}</div>,
+    el
+    )
+
+colocando dentro de outra variável o conteúdo e nela vamos chamar dentro de {}
+a variável tag

@@ -1,0 +1,32 @@
+Agora vamos iniciar o nosso projeto
+
+dentro da nossa index.js, vamos primeiro importar o reactDOM(biblioteca) que é o responsável
+por renderizar algo na tela
+
+import ReactDOM from 'react-dom'
+
+----------------------------------
+
+Após importar a biblioteca vamos usar o médoto render que vai renderizar as coisas na tela
+
+ReactDOM.render('Olá React!!!!')
+
+Ele recebe 2 parâmetros:
+
+1º -> O que eu quero renderizar na tela
+2º -> Vai ser o elemento que eu quero inserir o conteúdo do primeiro
+
+E onde vamos inserir o conteúdo na tela??
+
+O nosso arquivo mais importante é o index.html, dentro de public 
+
+ele possui uma div com o id="root", vamos inserir toda nossa aplicação dentro dessa div
+
+então nosso ReactDOM.render vai ficar dessa forma, porém para facilitar o código vamos jogar
+nossa div principal dentro de uma variável antes de inserir o 2º valor
+
+const el = document.getElementById('root')
+ReactDOM.render('Olá React!!!!',el)
+
+poderiamos inserir direto, em vez do el, colocar todo o texto do document.getElementById, porém
+ficaria muito verboso

@@ -1,0 +1,11 @@
+Agora vamos criar nosso css em react
+
+1º vamos criar em src um arquivo chamado index.css
+2º não adianta apenas criar um arquivo com o mesmo nome e com final .css, para puxar o estilo
+devemos fazer o import. Dentro da nossa index.js, vamos dar o seguinte import:
+
+import './index.css'
+
+o import dele não precisou ser igual os outros, porquê não vou acessar nada do index, e por
+isso não precisamos colocar um nome de um compoonente from e o restante
+

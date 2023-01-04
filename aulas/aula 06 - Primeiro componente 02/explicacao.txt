@@ -1,0 +1,31 @@
+Agora vamos começar a usar jsx no nosso componente.
+
+Não basta apenas importar na index.js o nosso React para utilizar jsx, temos também que fazer
+um import dentro do nosso componente também.
+
+vai ficar dessa forma:
+
+import React from "react"
+
+
+export default function Primeiro(){
+    return <h2>Primeiro Componente</h2>
+}
+
+Outro detalhe é que quando você está uttilizando jsx e quer colocar os elementos HTML
+na linha abaixo, você tem que no return colocar entre parênteses, o código após alteraçõoes
+vai ficar dessa forma o nosso primeiro componente.
+
+import React from "react"
+
+
+export default function Primeiro(){
+    const msg = 'Seja bem vindo'
+    
+    return (
+            <div> 
+                <h2>Primeiro Componente</h2>
+                <p>{ msg }</p>
+           </div>
+           )
+}

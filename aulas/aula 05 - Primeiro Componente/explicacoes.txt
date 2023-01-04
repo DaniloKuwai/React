@@ -1,0 +1,34 @@
+Para inicar a ciração do nosso primeiro componente, vamos criar dentro de src
+uma pasta chamada components e depois uma subpasta chamadoo basicos para organizar
+melhor os nossos componentes. Poderia ser direto em src, porém ia ficar muitos arquivos
+espalhados no caso.
+
+Vamos criar o arquivo Primeiro.js, por boas práticas quando é um componente o ideal é
+colocar sempre a primeira letra em maiúsculo.
+
+dentro do Primeiro.js, vamos criar uma função só que usando o export default, para ser
+possível importar ela depois no nosso index.js
+
+export default function Primeiro(){
+    return 'Primeiro Componente'
+}
+
+Agora no nosso index.js, vamos dar um import no nosso componente Primieiro.js
+
+import Primeiro from './components/basicos/Primeiro'
+
+e após isso já podemos utilizar ele no nossa renderização da página, colocando ele dessa forma
+
+<Primeiro></Primeiro>
+
+Vai chamar o que está escrito no componente Primeiro Componente Mais novo
+
+O código inteiro vai ficar dessa forma:
+
+const el = document.getElementById('root')
+ReactDOM.render(
+    <div>
+        <Primeiro></Primeiro>
+    </div>,
+    el
+)

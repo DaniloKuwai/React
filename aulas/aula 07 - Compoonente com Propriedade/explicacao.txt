@@ -1,0 +1,66 @@
+Nessa aula vamos criar um componente com propriedade, primeiro dentro de src/components/basicos, vamos criar o
+ComParametro.jsx, e porquê jsx agora? para facilitar quando faz a escrita, por exemplo dentro de um jsx quando
+digita div ele já autocompleta, se estivesse como js não ia aparecer, só por esse motivo, mais devemos fazer
+a importação da mesma forma
+
+Agora vamos iniciar criando nossa função:
+
+import React from "react"
+
+export default function ComParametro(params){
+    console.log(params)
+    return (
+    <div>
+        <h2>{params.titulo}</h2>
+        <h3>{params.subtitulo}</h3>
+    </div>
+    )
+}
+
+colocando o parametro params, estamos recebendo o valor que foi colocado no componente dentro da index.js, e chamamos ele
+dessa forma abaixo params.titulo e params.subtitulo. No index.js a chamada do componente com propriedade fica dessa forma:
+
+<ComParametro titulo="Segundo Componente" subtitulo="Muito legal"></ComParametro>
+
+E na tela vai ser exibido os seguintes textos:
+
+Segundo Componente
+Muito legal
+
+Porém por padrão na documentação do react usamos props e não params então vai ficar dessa forma:
+
+import React from "react"
+
+export default function ComParametro(props){
+    return (
+    <div>
+        <h2>{props.titulo}</h2>
+        <h3>{props.subtitulo}</h3>
+    </div>
+    )
+}
+
+------------------------------------------
+
+Agora vamos alterar as propriedades dos componentes:
+
+<ComParametro titulo="Situação do Aluno" aluno="Pedro" nota ={9.3}></ComParametro>
+
+e automaticamente vamos alterar a nossa função:
+
+import React from "react"
+
+export default function ComParametro(props){
+    console.log(props)//esse console é só para mostrar que o props já está pegando o título e o subtitulo passados no componente
+    return (
+    <div>
+        <h2>{props.titulo}</h2>
+        <h3>{props.subtitulo}</h3>
+        <h4> {props.nota}</h4>
+    </div>
+    )
+}
+
+Inclusive podemos reaproveitar nosso componente e alterar os valores apenas que ele já vai mostrar outro resultado,exemplo:
+
+<ComParametro titulo="Situação do Aluno" aluno="Ana" nota ={9.8}></ComParametro>

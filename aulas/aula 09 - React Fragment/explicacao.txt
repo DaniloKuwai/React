@@ -1,0 +1,40 @@
+No react toda vez que é criado 2 elementos adjacentes(ou seja um h2 e depois um parágrafo por exemplo um em cada linha), nós temos
+sempre que envolver esses elementos sobre uma div, caso não coloque vai apresentar erro no react, porém podemos utilizar um elemento
+chamado react.fragment no lugar de uma div, vamos a um exemplo primeiro.
+
+import React from "react";
+
+export default function Fragmento(props){
+    return (
+        <div>
+            <h2>Fragmento</h2>
+            <p>Cuidado com essa div</p>
+        </div>
+    )
+}
+
+nesse caso eles estão dentro de uma div, porém podemos substituir por React.fragment, ficaria dessa forma:
+
+import React from "react";
+
+export default function Fragmento(props){
+    return (
+        <React.Fragment>
+            <h2>Fragmento</h2>
+            <p>Cuidado com essa div</p>
+        </React.Fragment>
+    )
+}
+
+e se inspecionarmos não vai aparecer mais entre divs, podemos também usar uma forma mais curta dessa forma:
+
+import React from "react";
+
+export default function Fragmento(props){
+    return (
+        <>
+            <h2>Fragmento</h2>
+            <p>Cuidado com essa div</p>
+        </>
+    )
+}

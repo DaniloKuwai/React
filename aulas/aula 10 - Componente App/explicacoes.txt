@@ -1,0 +1,52 @@
+Nessa aula vamos tirar o conteúdo do index.js e usando o jeito react de comonentizar
+vamos criar um componente para ficar toda nossa aplicação e deixar mais limpo o 
+nossoo index.js.
+
+Vamos criar o nosso App.jsx dentro de src e vamos puxar todos os imports dos
+componentes das aulas passadas.
+
+import React from "react";
+
+import Primeiro from './components/basicos/Primeiro'
+import ComParametro from './components/basicos/ComParametro'
+import Fragmento from './components/basicos/Fragmento'
+
+export default function App(props){
+    return(
+        <div id="app">
+            <h1>Fundamentos React</h1>
+        <Primeiro></Primeiro>
+        <ComParametro titulo="Situação do Aluno" aluno="Pedro" nota ={9.3}></ComParametro>
+        <ComParametro titulo="Situação do Aluno" aluno="Ana" nota ={9.8}></ComParametro>
+        <Fragmento></Fragmento>
+        </div>
+    )
+}
+
+Vai ficar dessa forma, após tirar todo o conteúdo da index.js, vamos apenas carregar o componente
+App.jsx no nosso index.js assim vai ficar mais limpo o nosso index.js, vai ficar dessa forma:
+
+import './index.css'
+import ReactDOM from 'react-dom'
+import React from 'react'
+
+import App from './App'
+
+
+const el = document.getElementById('root')
+ReactDOM.render(
+    <App></App>,
+    el
+)
+
+Agora vamos simplificar o códigoo do nosso App.jsx, pra ele ficar dessa forma:
+
+export default _ => 
+    
+        <div id="app">
+            <h1>Fundamentos React 2</h1>
+        <Primeiro></Primeiro>
+        <ComParametro titulo="Situação do Aluno" aluno="Pedro" nota ={9.3}></ComParametro>
+        <ComParametro titulo="Situação do Aluno" aluno="Ana" nota ={9.8}></ComParametro>
+        <Fragmento></Fragmento>
+        </div>

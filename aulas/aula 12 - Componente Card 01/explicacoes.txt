@@ -1,0 +1,91 @@
+Nessa aulas vamos arrumar nossa apresentação da aplicação utilizando css agora,antes 
+vamos criar uma nova pasta chamada layout dentro da pasta components e vamos criar um
+arquivo Card.jsx, vamos colocar o seguinte código:
+
+import React from "react";
+import './Card.css'
+
+export default function Card(props){
+    return (
+        <div className="Card">
+            <div className="Title">{props.titulo}</div>
+            <div className="Content">{props.children}</div>
+        </div>
+    )
+}
+
+Após isso chamar nosso conteúdo dentro de App.jsx importando e colocando a tag chamando 
+o componente na aplicação:
+
+<Card titulo="Exemplo de Card">
+            
+            
+</Card>
+
+Após isso dentro de layout, vamos criar um novo arquivo chamado Card.css, pode ser maiúsculo
+e dentro da nossa div principal dentro de Card.jsx vamos colocar o className que é a mesma coisa
+que class no HTML, porém não pode ser usada a palavra reservada class, porquê no javascript é uma
+palavra reservada para criar uma classe.
+
+segue nosso código css:
+
+.Card{
+    background-color: red;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid red;
+    margin:10px;
+}
+
+.Card .Title{
+    padding: 5px 0px;
+    display:flex;
+    justify-content: center;
+}
+
+.Card .Content {
+    background-color: #fff;
+    color: #000;
+    padding:10px;
+}
+
+E para que fizemos essa criação? para conseguir alterar todos os nossos componentes de uma vez só
+envolvendoo ele dentro desse componente de estiloo e automaticamente o conteúdo do outro componente
+vai aparecer com estilo já, lembrando que para mostrar o conteúdo do outro componente que está envolvido
+no nosso card, dentror do nosso card usamos o props.children que vai exibir o conteúdo do nosso componente
+filho, segue como ficou nosso Apps.jsx:
+
+import React from "react";
+
+import Primeiro from './components/basicos/Primeiro'
+import ComParametro from './components/basicos/ComParametro'
+import Fragmento from './components/basicos/Fragmento'
+import Aleatorio from "./components/basicos/Aleatorio";
+import Card from "./components/layout/Card";
+
+export default function App() {
+    return(
+    <div id="app">
+        <h1>Fundamentos React</h1>
+        <Card titulo="#04 - Valor Aleatório">
+        <Aleatorio min={1} max={60}></Aleatorio>
+        </Card>
+
+        <Card titulo="#03 - Fragmento">
+        <Fragmento></Fragmento>
+        </Card>
+
+        <Card titulo="#02 - ComParametro">
+        <ComParametro titulo="Situação do Aluno" aluno="Pedro" nota={9.3}></ComParametro>
+        <ComParametro titulo="Situação do Aluno" aluno="Ana" nota={9.8}></ComParametro>
+        </Card>
+        
+        <Card titulo="#01 - Primeiro Componente">
+        <Primeiro></Primeiro>
+        </Card>
+    </div>
+    )
+}
+
+Dessa forma conseguiimos arrumar mais facilmente todos os componentes.
+

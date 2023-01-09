@@ -1,0 +1,31 @@
+Nessa aula vamos fazer um desafio de criar um número aleatório a partir de um numero máximo e mínimo.
+
+Vamos criar o Aleatorio.jsx dentro de components\basicos e nele vamos criar o seguinte código:
+
+import React from "react";
+
+export default function Aleatorio(props) {
+    const min = props.min
+    const max = props.max
+    //Aqui vai a fórmula para o numero aletorio
+    const aleatorio = parseInt(Math.random() * (max -min)) + min
+    return (
+        <div>
+            <p>Digite um número</p>
+            <p><strong>O valor mínimo é:{min}</strong></p>
+            <p><strong>O valor máximo é:{max}</strong></p>
+            <p><strong>O valor escolhido é:{aleatorio}</strong></p>
+        </div>
+    )
+}
+
+Após isso vamos só chamar ele dentro do nosso App.jsx, primeiro dando o 
+import
+
+import Aleatorio from "./components/basicos/Aleatorio";
+
+e depois adicionando a tag:
+
+<Aleatorio min={1} max={60}></Aleatorio>
+
+Já colocando os valores de min e max que está recebendo no props.min e props.max

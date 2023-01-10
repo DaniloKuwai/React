@@ -1,0 +1,78 @@
+Nessa aula vamos deixar nosso card de uma forma mais fácil para trocar a cor
+do título, e para isso vamos em card.jsx adicionar uma constante que vai receber
+o props.titulo que ele vai receber a cor através do componente, segue código do Card.jsx
+
+import React from "react";
+import './Card.css'
+
+export default function Card(props){
+    
+    const estilo = {
+        backgroundColor: props.color || '#F00'
+    }
+
+    return (
+        <div className="Card" style={estilo}>
+            <div className="Title">{props.titulo}</div>
+            <div className="Content">{props.children}</div>
+        </div>
+    )
+}
+
+observe que na div quee faz parte do topo do título adicionamos o style,
+poderiamos colocar uma cor diretamente, porém para ficar mais fácil fazemos
+dessa forma, deixamos como se fosse um atributo a receber, em cima criamos
+um ojeto que vai receber props.color, poderiamos colocar diretamente no style também
+e nesse objeto também fizemos a condicional se não tiver cor aplique a cor #F00
+
+no nosso App.jsx adicionamos a cor no card dessa forma:
+
+<Card titulo="#04 - Valor Aleatório" color="#080">
+
+E também vamos adicionar bordas da mesma forma, vamos adicionar no nosso objeto estilo
+a seguinte linha de código:
+
+import React from "react";
+import './Card.css'
+
+export default function Card(props){
+    
+    const estilo = {
+        backgroundColor: props.color || '#F00',
+        borderColor: props.border || '#F00',
+    }
+
+    return (
+        <div className="Card" style={estilo}>
+            <div className="Title">{props.titulo}</div>
+            <div className="Content">{props.children}</div>
+        </div>
+    )
+}
+
+o borderColor: recebendo props.color || se caso não for setado nenhuma cor ele assume cor X
+
+O código final vai ser:
+
+import React from "react";
+import './Card.css'
+
+export default function Card(props){
+    
+    const estilo = {
+        backgroundColor: props.color || '#F00',
+        borderColor: props.color || '#F00',
+    }
+
+    return (
+        <div className="Card" style={estilo}>
+            <div className="Title">{props.titulo}</div>
+            <div className="Content">{props.children}</div>
+        </div>
+    )
+}
+
+Inspecionando nosso elemento HTTML você vai observar que nossa div
+está com o background-color e o border adicionados ao elemento já.
+
+

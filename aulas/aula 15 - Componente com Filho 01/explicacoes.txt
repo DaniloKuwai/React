@@ -1,0 +1,42 @@
+Nessa aula vamos aprender sobre componente filho, vamos criar 2 arquivos
+Familia.jsx e FamiliaMembro.jsx
+
+no Familia.jsx vamos criar o seguinte código:
+
+import React from "react";
+import FamiliaMembro from './FamiliaMembro'
+
+export default function Familia(props){
+    return(
+        <div>
+            <FamiliaMembro nome="Pedro" sobrenome={props.sobrenome}></FamiliaMembro>
+            <FamiliaMembro nome="Ana" {...props}></FamiliaMembro>
+            <FamiliaMembro nome="Gustavo" sobrenome="Ferreira"></FamiliaMembro>
+        </div>
+    )
+}
+
+esse código já é o final, nele temos 3 formas diferentes de se pegar o sobrenome como observado
+
+1º através do compente criado em App.jsx:
+
+<Card titulo="#05 - Componente com Filhos" color="#00C8F8">
+        <Familia sobrenome="Ferreira"></Familia>
+        </Card>
+
+2º através de props usando o spread que pega todos os atributos passados no componente padding
+
+<FamiliaMembro nome="Ana" {...props}></FamiliaMembro>
+
+39 Ou colocando diretamente o sobrenome, e lembrando que estamos puxando todos os atributos de
+outro componente filho que é o FamiliaMembros.jsx, que está com o seguinte código:
+
+import React from "react";
+
+export default function Familia(props){
+    return(
+        <div>
+            {props.nome} <strong>{props.sobrenome}</strong>
+        </div>
+    )
+}

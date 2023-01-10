@@ -14,7 +14,7 @@ ReactDOM.render('Olá React!!!!')
 Ele recebe 2 parâmetros:
 
 1º -> O que eu quero renderizar na tela
-2º -> Vai ser o elemento que eu quero inserir o conteúdo do primeiro
+2º -> Vai ser o elemento que eu quero inserir o conteúdo do primeiro, no caso é a div do index.html que possui o id="root".
 
 E onde vamos inserir o conteúdo na tela??
 

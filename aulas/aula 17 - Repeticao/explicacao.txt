@@ -1,0 +1,67 @@
+Nessa aula vamos trabalhara com repetição, porém antes vamos fazer algumas criações:
+
+Vamos também criar uma pasta dentro de src chamado data, representando como se fosse os dados
+da nossa aplicação que queremos extrair.
+Dentro dessa dados vamos criar o seguinte arrays de objetos:
+
+export default [
+    {id:1 , nome: 'Ana', nota:9.2},
+    {id:2 , nome: 'Bia', nota:8.4},
+    {id:3 , nome: 'Rafael', nota:6.8},
+    {id:4 , nome: 'Clara', nota:7.5},
+    {id:5 , nome: 'Igor', nota:4.6},
+    {id:6 , nome: 'José', nota:7.8},
+    {id:7 , nome: 'Marta', nota:3.7},
+    {id:8 , nome: 'Marcel', nota:6.9},
+    {id:9 , nome: 'Robson', nota:8},
+]
+
+Após isso Vamos criar o ListaAlunos.jsx dentro de components\repeticao, e podemos primeiro extrair
+dessa forma:
+
+import React from "react";
+import alunos from '../../data/alunos'
+
+export default function ListaAlunos(){
+    const li1 = <li>{alunos[0].id} {alunos[0].nome } {alunos[0].nota}</li>
+    return(
+        <div>
+            <ul>
+                <li>{li1}</li>
+                <li>Carlos - 7.7</li>
+                <li>Daniel - 6.5</li>
+            </ul>
+        </div>
+    )
+}
+
+poderiamos criar uma constante que puxa o índice 0 do aluno 0 da nota 0 e exibir,porém teriamos que
+fazer um por um em questão o que não é nada prático.
+
+Vamos deixar o código mais prático então:
+
+import React from "react";
+import alunos from '../../data/alunos'
+
+export default function ListaAlunos(){
+
+    const lis = alunos.map(aluno =>{
+        return (
+            <li key={aluno.id}>
+                {aluno.id} {aluno.nome} {aluno.nota}
+            </li>
+        )
+    })
+    return(
+        <div>
+            <ul style={{listStyle:"none"}}>
+                {lis}
+            </ul>
+        </div>
+    )
+}
+
+vamos jogar dentro de uma constante lis a função já com o map, para vasculhar todo o nosso array, e um return
+para trazer os dados solicitados, como o id, o nome e a nota. 
+
+O key é por conta de um erro que dá no console, cobrando uma key, porém ele funciona sem ele também.

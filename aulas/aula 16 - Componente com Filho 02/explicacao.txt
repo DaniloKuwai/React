@@ -25,3 +25,34 @@ e dentro dessa função vai retornar todos elementos da tela com
 
 o CloneElement, clona os elementos, e vai passar para os atributos da própria função (el) que vai receber
 os atrtibutos que vem dos props.
+
+----------------------------------------------------------------------------------------------------------
+
+Pontos importantes da aula:
+
+1º ->Tudo que vai entre {} é código js
+2º ->Método React.cloneElement serve para clonar um elemento,exemplo:
+{React.cloneElement(props.children)} ele está clonando o elemento filho do seguinte item:
+
+<Card titulo="#05 - Componente com Filhos" color="#00C8F8">
+    <Familia sobrenome="Ferreira">
+        <FamiliaMembro nome="Pedro" ></FamiliaMembro>
+    </Familia>
+</Card>
+
+Vai aparecer pedro quee é um elemento filho da Familia e FamiliaMembro
+
+3º -> O React.Children.map, serve para mapear todos elementos dos componentes filhos.
+
+no exemplo que usamos na aula, estamos listando todos os elementos de props.children.
+
+React.Children.map(props.children, (el) => {
+                return cloneElement(el,props)
+})
+
+Para testar antes do return aplique um console.log(props.children), e veja o que ele vai
+trazer, vai trazer esses três elementos do App.jsx
+
+<FamiliaMembro nome="Pedro" ></FamiliaMembro>
+        <FamiliaMembro nome="Ana"></FamiliaMembro>
+        <FamiliaMembro nome="Gustavo"></FamiliaMembro>

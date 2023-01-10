@@ -1,0 +1,27 @@
+Nessa aula vamos aprender como pegar valores e componentes que nós não vamos ter
+acesso direto aos valores de componentes pais, porquê na aula anterior, nós conseguimos de forma
+simples extrair os valores porquê nós tinhamos acesso a tudo, porém a casos que nós não temos
+acesso aos valores diretamente de um componente, e temos que extrair através do componente filho:
+
+import React from "react";
+import { cloneElement } from "react";
+
+export default function Familia(props){
+    return(
+        <div>
+            {
+            React.Children.map(props.children, (el) => {
+                return cloneElement(el,props)
+            })
+            }
+        </div>
+    )
+}
+
+para pegar todos os elementos do componente fazemos esse código
+
+utilizamos o React.Children.map -> vai receber os props.children e também vai receber uma função (el)
+e dentro dessa função vai retornar todos elementos da tela com
+
+o CloneElement, clona os elementos, e vai passar para os atributos da própria função (el) que vai receber
+os atrtibutos que vem dos props.

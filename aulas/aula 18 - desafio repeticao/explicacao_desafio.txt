@@ -1,0 +1,65 @@
+Nessa aula temos que fazer um desafio de repeticao
+
+1º Criar um arquivo Produtos.js dentro de data que é o que vai conter nossos dados
+dentro dele tem que ter 3 atributos:
+
+1º o id
+2º o nome do produto
+3º o valor do produto
+
+2º Criar dentro da pasta repeticao TabelaProdutos.jsx, em vez de mostrar uma ListaAlunos
+criar uma tabela mostrando todos os Produtos
+
+3º renderizar isso dentro doo App.jsx
+
+Feito o código do TabelaProdutos.jsx:
+
+import React from "react";
+import produto from '../../data/produto'
+
+export default function TabelaProdutos(){
+    const listagem = produto.map(produto =>{
+        return(
+            <table style={{border:"1px solid black"}} key={produto.key}>
+                <tr>
+                    <td><span>id</span></td>
+                    <td><span>produto</span></td>
+                    <td><span>valor</span></td>
+                </tr>
+                <tr>
+                    <td>{produto.id}</td>
+                    <td>{produto.produto}</td>
+                    <td>{produto.valor}</td>
+                </tr>
+                <tr>
+                    
+                </tr>
+            </table>
+        )
+    })
+    
+    return(
+        <div>{listagem}</div>
+    )
+}
+
+Feito também o produtos.js
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default  [
+    {id:1 , produto: 'notebook' , valor:2000},
+    {id:2 , produto: 'celular' , valor:1000},
+    {id:3 , produto: 'computador' , valor:3000},
+    {id:4 , produto: 'tv' , valor:1800},
+    {id:5 , produto: 'fogao' , valor:600},
+    {id:6 , produto: 'geladeira' , valor:3500},
+    {id:7 , produto: 'maquina-de-lavar' , valor:900},
+    {id:8 , produto: 'microondas' , valor:400},
+    {id:9 , produto: 'tablet' , valor:350},
+]
+
+e renderizado na tela do App.jsx
+
+<Card titulo="#07 -Desafio Repeticao" color="#FF4C65">
+        <TabelaProdutos></TabelaProdutos>
+        </Card>  

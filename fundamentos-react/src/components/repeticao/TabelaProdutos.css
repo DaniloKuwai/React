@@ -1,5 +1,3 @@
-.table{
-    padding:10px;
-    display:flex;
-    flex-direction: column;
+.TabelaProdutos{
+    width:100%;
 }

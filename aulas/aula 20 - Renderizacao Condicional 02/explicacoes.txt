@@ -1,0 +1,40 @@
+Nessa aula vamos dar continuidade as renderizações condicionais. No caso
+vamos criar um arquivo de condicional simples chamado If.js, nele vamos colocar
+a seguinte condicional:
+
+export default props =>{
+    if(props.test){
+        return props.children
+    }else{
+        return false
+    }
+}
+
+nela vamos testar se props possui valor e vai retornar o valor de props.children(valor do filho)
+se não, não vamos retornar nada.
+
+Após isso vamos criar o Usuarioinfo.jsx e nele vamos colocar o seguinte código:
+
+import React from "react";
+import If from './If'
+
+export default function Usuarioinfo(props){
+    const usuario = props.usuario
+    return(
+        <div>
+            <If test={usuario && usuario.nome}>
+            Seja bem vindo <strong>{usuario.nome}</strong>
+            </If>
+        </div>
+    )
+}
+
+importamos a condicional, e envolvemos um test se usuario e usuario.nome forem true, exbimos o texto
+com o nome do usuario.
+
+E colocamos nosso componente no App.jsx como sempre:
+
+<Card titulo="#09 - Renderização Condicional 02" color="#982395">
+        <Usuarioinfo usuario={{nome: 'Fernando'}}></Usuarioinfo>
+        </Card> 
+

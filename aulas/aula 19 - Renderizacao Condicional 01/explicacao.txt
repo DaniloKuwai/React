@@ -1,0 +1,25 @@
+Nessa aula vamos começar a estudar renderização condicionar, para isso
+vamos criar dentro de componentes uma pasta chamada condicional, dentro dela
+vamos criar um arquivo chamado ParOuImpar.jsx, nele vamos colocar a condicional
+
+import React from "react";
+
+export default function ParOuImpar(props){
+    const isPar = props.numero % 2  === 0
+    return(
+        <div>
+            {isPar ? <span>Par</span> : <span>Impar</span>}
+        </div>
+    )
+}
+
+e vamos adicionar no nosso App.jsx,:
+
+<Card titulo="#08 - Renderização Condicional 01" color="#982395">
+        <ParOuImpar numero={21}></ParOuImpar>
+</Card> 
+
+nesse caso como recebemos o valor 21, vai aparecer impar na tela.
+
+Porquê no nosso componente, estamos calculando se props, que recebeu o numero 21
+usando o modulo e vendo se o resto é 0 ou não ele vai trazer o resultado.

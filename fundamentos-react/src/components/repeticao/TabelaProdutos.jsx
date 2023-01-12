@@ -1,23 +1,25 @@
 import React from "react";
 import produto from '../../data/produto'
+import './TabelaProdutos.css'
 
 export default function TabelaProdutos(){
     const listagem = produto.map(produto =>{
         return(
-            <table style={{border:"1px solid black"}} key={produto.key}>
+            <table className="TabelaProdutos" border="1" key={produto.key}>
+                <thead>
                 <tr>
-                    <td><span>id</span></td>
-                    <td><span>produto</span></td>
-                    <td><span>valor</span></td>
+                    <th>id</th>
+                    <th>produto</th>
+                    <th>valor</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
-                    <td>{produto.id}</td>
-                    <td>{produto.produto}</td>
-                    <td>{produto.valor}</td>
+                    <th>{produto.id}</th>
+                    <th>{produto.produto}</th>
+                    <th>R${produto.valor}</th>
                 </tr>
-                <tr>
-                    
-                </tr>
+                </tbody>
             </table>
         )
     })

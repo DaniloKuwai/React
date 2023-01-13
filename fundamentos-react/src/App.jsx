@@ -11,6 +11,7 @@ import FamiliaMembro from "./components/basicos/FamiliaMembro"
 import TabelaProdutos from "./components/repeticao/TabelaProdutos";
 import ParOuImpar from "./components/condicional/ParOuImpar";
 import Usuarioinfo from "./components/condicional/Usuarioinfo";
+import DiretaPai from "./components/comunicacao/DiretaPai";
 
 import ListaAlunos from "./components/repeticao/ListaAlunos";
 
@@ -20,6 +21,9 @@ export default function App() {
         <h1>Fundamentos React</h1>
 
         <div className="Cards">
+        <Card titulo="#10 - Comunicação Direta" color="#59323C">
+        <DiretaPai></DiretaPai>
+        </Card>     
 
         <Card titulo="#09 - Renderização Condicional 02" color="#982395">
         <Usuarioinfo usuario={{nome: 'Fernando'}}></Usuarioinfo>

@@ -1,0 +1,37 @@
+Nessa aula nada mais é que uma revisão de tudo que fizemos em
+relação a comunicação direta, vamos criar uma pasta nova dentro
+de components chamada comunicacao, nele vamos criar 2 arquivos:
+
+DiretaPai.jsx:
+
+import React from "react";
+import DiretaFilho from "./DiretaFilho";
+
+export default function DiretaPai(props){
+    return(
+        <div>
+            <DiretaFilho nome="Junior" idade={20} nerd={true}></DiretaFilho>
+            <DiretaFilho nome="Gabriel" idade={17} nerd={false}></DiretaFilho>
+        </div>
+    )
+}
+
+DiretaFilho.jsx:
+
+import React from "react";
+
+export default function DiretaFilho(props){
+    return(
+        <div>
+            <div>{props.nome}</div>
+            <div>{props.idade}</div>
+            <div>{props.nerd ? 'Verdadeiro' : 'Falso'}</div>
+        </div>
+    )
+}
+
+e vamos renerizar isso dentro do nosso Apps.jsx:
+
+<Card titulo="#10 - Comunicação Direta" color="#59323C">
+        <DiretaPai></DiretaPai>
+        </Card>  

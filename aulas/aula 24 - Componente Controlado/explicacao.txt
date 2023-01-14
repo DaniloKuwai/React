@@ -1,0 +1,53 @@
+Nessa aula vamos ver o que é um componente controlado, para isso vamos criar uma
+nova pasta dentro de components, uma pasta chamada formulario, dentro dele vamos
+criar 2 arquivos:
+
+Input.jsx e um Input.css só para estilizar o tamanho do nosso input. Dentro do Input.jsx
+vamos ver o seguinte código inicial:
+
+import './Input.css'
+import React from "react";
+import { useState } from "react";
+
+export default function Input(props){
+
+    const [valor, setValor] = useState('Inicial')
+
+
+    return(
+        <div className="Input">
+            <input value={valor}></input>
+        </div>
+    )
+}
+
+porém com ele vai aparecer um input na tela, mais não conseguimos digitar nada nesse campo
+de input e porquê ele não deixa digitar? porquê ele é um componente controlado.
+
+E como fazemos então para conseguir digitar em um componente controlado? fazemos dessa forma:
+
+import './Input.css'
+import React from "react";
+import { useState } from "react";
+
+export default function Input(props){
+
+    const [valor, setValor] = useState('Inicial')
+
+    function quandoMudar(e){
+        setValor(e.target.value)
+    }
+
+
+    return(
+        <div className="Input">
+            <h2>{valor}</h2>
+            <input value={valor} onChange={quandoMudar}></input>{/*Aqui é para conseguirmos alterar um componente controlado*/}
+            <input value={undefined}></input>{/*Aqui deixamos o input como um componente não controlado no caso, vai deixar digitar sem precisar colocar o onChange*/}
+        </div>
+    )
+}
+
+primeiro criamos uma função e vamos coolocar a função setValor recebendo o valor digitado, e colocamos no onChange a função que automaticamente vai alterar
+o valor
+também podemos trasnformar o input em um componente não contrado, tirando o onChange e colocando no value o undefined

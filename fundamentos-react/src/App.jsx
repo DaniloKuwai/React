@@ -12,6 +12,8 @@ import TabelaProdutos from "./components/repeticao/TabelaProdutos";
 import ParOuImpar from "./components/condicional/ParOuImpar";
 import Usuarioinfo from "./components/condicional/Usuarioinfo";
 import DiretaPai from "./components/comunicacao/DiretaPai";
+import IndiretaPai from "./components/comunicacao/IndiretaPai";
+import Input from "./components/formulario/Input";
 
 import ListaAlunos from "./components/repeticao/ListaAlunos";
 
@@ -21,6 +23,15 @@ export default function App() {
         <h1>Fundamentos React</h1>
 
         <div className="Cards">
+
+        <Card titulo="#12 - Componente Controlado" color="#E45F56">
+        <Input></Input>
+        </Card>     
+
+        <Card titulo="#11 - Comunicação Indireta" color="#8BAD39">
+        <IndiretaPai></IndiretaPai>
+        </Card>     
+
         <Card titulo="#10 - Comunicação Direta" color="#59323C">
         <DiretaPai></DiretaPai>
         </Card>     

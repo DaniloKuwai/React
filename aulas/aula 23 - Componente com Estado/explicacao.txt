@@ -1,0 +1,64 @@
+Nessa aula, vamos começar a usar uma hook, que na aula passada vimos no indiretaFilho.jsx
+mandar atributos para o componente pai, porém e se quisermos alterar os valores dos componentes
+no compoente Pai, como fazemos, por isso vamos utilizar uma hook chamada useState.
+
+o useState retorna a seguinte informação useState(1º posição -> retorna o valor em si , 2º vai retornar uma função que vai ser usada para alterar esse valor)
+
+vamos a aplicação dentro do IndiretaPai.jsx:
+
+import React, { useState } from "react";
+import IndiretaFilho from './IndiretaFilho'
+
+export default function IndiretaPai(props){
+
+    const [nome , setNome] = useState('?')
+    const [idade, setIdade] = useState(0)
+    const [nerd, setNerd] = useState(false)
+
+    function fornecerInformacoes(nome,idade,nerd){
+        setNome(nome)
+        setIdade(idade)
+        setNerd(nerd)
+
+    }
+    
+
+    return(
+        <div>
+            <span>{nome}</span>
+            <span>{idade}</span>
+            <span>{nerd ? 'Verdadeiro' : 'Falso'}</span>
+
+            <IndiretaFilho quandoClicar={fornecerInformacoes}> </IndiretaFilho>
+        </div>
+    )
+}
+
+então criamos uma constante para receber os valores conforme o useState solicita, o valor que vai ser recebido na variável primeiro, igual o exemplo
+
+const [idade, setIdade] = useState(0) e a função setIdade(que poderia ser qualquer nome da função por exemplo alterarIdade)
+
+e no compoente filho permanece igual o código:
+
+import React from "react";
+
+export default function IndiretaPai(props){
+    return(
+        <div>
+            <div>
+                Filho
+            </div>
+            <button onClick={
+                function(e){
+                    props.quandoClicar('João',30,true)
+                }
+            }>
+                Fornecer Informações</button>
+        </div>
+    )
+}
+
+Porém na primeira renderização vai aparecer o valor de 
+? 0 Falso, e quando clicarmos no botão vai alterar o estado e vai aplicar aquelas informações que estão no componente filho:
+
+João,30,verdadeiro

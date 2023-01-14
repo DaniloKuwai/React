@@ -1,0 +1,65 @@
+Nessa aula vamos ver uma comunicação indireta, como assim?
+
+no caso vamos simular um componente filho passando informação para um componente pai, ao
+contrário de uma comunicação direta, que o pai que passa infonrmações para o componente filho,
+isso vamos fazer através de uma função criada no pai que no momento que existe uma ação ele vai
+solicitar as informações ao componente filho.
+
+Para o exemplo vamos criar 2 arquivos dentro de comunicacao:
+
+IndiretaPai.jsx
+IndiretaFilho.jsx
+
+dentro de IndiretaPai:
+
+import React from "react";
+import IndiretaFilho from './IndiretaFilho'
+
+export default function IndiretaPai(props){
+
+    function fornecerInformacoes(nome,idade,nerd){
+        console.log(nome,idade,nerd)
+    }
+    
+
+    return(
+        <div>
+            Pai
+
+            <IndiretaFilho quandoClicar={fornecerInformacoes}> </IndiretaFilho>
+        </div>
+    )
+}
+
+Criamos uma função que vai ser chamado no momento de clique que está dentro do filho, e setamos dentro do nosso return
+o evento quandoClicar(podia ser qualquer nome, mais é só para explicitar a chamada do evento quando clicar no botão), vai
+chamar a função fornecerInformacoes passando os parâmetros que estão no componente filho:
+
+segue código do IndiretaFilho.jsx
+
+import React from "react";
+
+export default function IndiretaPai(props){
+    return(
+        <div>
+            <div>
+                Filho
+            </div>
+            <button onClick={
+                function(e){
+                    props.quandoClicar('João',53,true)
+                }
+            }>
+                Fornecer Informações</button>
+        </div>
+    )
+}
+
+no indireta filho, criamos uma função no button no momento de click, ele vai chamado o quandoClicar do componentePai, via props que
+com o props temos acesso a todos os atributos e valores, e vamos passar os valores dos parâmetros esperados na função fornecerInformacoes()
+
+E também renderizamos no nosso App.jsx claro:
+
+<Card titulo="#11 - Comunicação Indireta" color="#8BAD39">
+    <IndiretaPai></IndiretaPai>
+</Card>

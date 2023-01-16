@@ -1,0 +1,105 @@
+Nessa aula vamos ver como funcionam as classes em react, apesar que 
+normalmente as funções já atendem todas as necessidades, vamos
+ver como funcionam as classes dentro do react.
+
+Primeiro vamos criar uma pasta dentro de src chamado contador, dentro
+dele vamos criar um arquivo chamado Contador.jsx, dentro dele vamos ter
+o seguinte código inicial:
+
+import React from "react";
+
+export default class Contador extends React.Component{
+
+    state = {
+        numero: 0
+    }
+
+    render(){
+        return(
+            <div>
+                <h2>Contador</h2>
+                <p>Valor Inicial: {this.props.numeroInicial}</p>
+            </div>
+        )
+    }
+}
+
+dessa forma vamos pegar o numero inicial setado no nosso componente:
+
+<Card titulo="#13 - Contador 01" color="#424242">
+        <Contador numeroInicial={10}></Contador>
+        </Card> 
+
+Porém podemos deixar mais fáciil no Contador.jsx, para quando for alterado o Valor
+dentroo de componente, ele vai alterar automaticamente o estado(o valor).
+
+import React from "react";
+
+export default class Contador extends React.Component{//aqui estou extendendo a classe de React.Component
+
+    //inicialização de estado
+    state = {
+        numero: this.props.numeroInicial
+    }
+
+    render(){
+        return(
+            <div>
+                <h2>Contador</h2>
+                <p>{this.state.numero}</p>
+            </div>
+        )
+    }
+}
+
+porém quando se trabalha com classe o problema é a complexidade e a quantidade de códigos, no caso nosso código
+ficou dessa forma:
+
+import React from "react";
+
+export default class Contador extends React.Component{//aqui estou extendendo a classe de React.Component
+
+    //inicialização de estado
+    state = {
+        numero: this.props.numeroInicial || 0,
+        passo: this.props.passoInicial || 5,
+    }
+
+    //agora vamos criar uma função que vai iniciar o nosso contador
+
+    inc = () =>{
+        this.setState({
+            numero: this.state.numero + this.state.passo,
+        })
+    }
+
+    dec = () =>{
+        this.setState({
+            numero: this.state.numero - this.state.passo
+        })
+    }
+
+    setPasso = (event) => {
+        this.setState({
+            passo: +event.target.value,
+        })
+    }
+
+
+    render(){
+        return(
+            <div>
+                <h2>Contador</h2>
+                <h3>{this.state.numero}</h3>
+                <div>
+                    <label htmlFor="passoInput">Passo: </label>
+                        <input id="passoInput" type="number" value={this.state.passo} onChange={this.setPasso}/>
+                    
+                </div>
+                <button onClick={this.inc}>+</button>
+                <button onClick={this.dec}>-</button>
+            </div>
+        )
+    }
+}
+

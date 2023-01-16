@@ -1,0 +1,7 @@
+Nesse desafio, temos que criar um gerador de números aleatórios para a mega-sena,
+temos que ter um input com a quantidade de números que quer ser gerado e um array
+para mostrar os números.
+
+Revisar desafio, não intendi algumas questões.
+
+aula 41 ee 42 na udemy.

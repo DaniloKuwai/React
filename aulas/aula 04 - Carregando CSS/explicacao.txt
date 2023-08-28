@@ -9,3 +9,4 @@ import './index.css'
 o import dele não precisou ser igual os outros, porquê não vou acessar nada do index, e por
 isso não precisamos colocar um nome de um compoonente from e o restante
 
+acrescentando conhecimento na questão de não precisar declarar mais informação no import e porque não vamos acessar nenhum valor e nenhum parametro do componente,por esse motivo não necessitamos da declaração da variável, porque precisamos somente da leitura.

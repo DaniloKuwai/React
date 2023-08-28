@@ -29,3 +29,5 @@ export default function Primeiro(){
            </div>
            )
 }
+
+outra observação,quando houver mais de uma linha na função, além de usar parênteses no return envolver o conteúdo dentro de uma div inicial, se não vai apresentar erro

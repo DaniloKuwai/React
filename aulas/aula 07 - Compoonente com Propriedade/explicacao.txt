@@ -64,3 +64,18 @@ export default function ComParametro(props){
 Inclusive podemos reaproveitar nosso componente e alterar os valores apenas que ele já vai mostrar outro resultado,exemplo:
 
 <ComParametro titulo="Situação do Aluno" aluno="Ana" nota ={9.8}></ComParametro>
+
+Podemos também adicionar uma condicional nessa função para ver a situação do aluno, exemplo
+
+Export default function ComParametro(props){
+const situacao = props.nota >= 7 ? 'Aprovado' : 'Reprovado'
+
+return(
+<div>
+    <h2>{props.titulo}</h2>
+    <h3>{props.subtitulo}</h3>
+    <h4> {props.nota}</h4>
+    <h4> {situacao}</h4>
+</div>
+)
+}

@@ -56,3 +56,55 @@ trazer, vai trazer esses três elementos do App.jsx
 <FamiliaMembro nome="Pedro" ></FamiliaMembro>
         <FamiliaMembro nome="Ana"></FamiliaMembro>
         <FamiliaMembro nome="Gustavo"></FamiliaMembro>
+-------------------------------------------------------------------------------------------
+
+Revisão dessa aula, Criei um componente para testar o React.cloneElement e o React.Children.map
+
+Criei um app apenas para essa aula
+
+código do app.jsx:
+
+import React from "react";
+
+/*Componentes*/
+
+import FamiliaMembro from "./componentes/FamiliaMembro";
+import Familia from "./Familia";
+
+export default function App(props) {
+    return (
+        <div>
+            <Familia sobrenome="Marola">
+            <FamiliaMembro nome="Rafael"></FamiliaMembro>
+            <FamiliaMembro nome="Joana"></FamiliaMembro>
+            <FamiliaMembro nome="Tadeu"></FamiliaMembro>
+            </Familia>
+        </div>
+    )
+}
+
+Criado os componentes Familia
+
+import React from "react";
+
+export default function Familia(props){
+    return(
+        <div>
+            {React.Children.map(props.children, filho => {
+                return (
+                    React.cloneElement(filho,props)
+                )
+            })}
+        </div>
+    )
+}
+
+O componente FamiliaMembro.jsx
+
+import React from "react";
+
+export default function FamiliaMembro(props){
+    return(
+        <div>{props.nome} <strong>{props.sobrenome}</strong></div>
+    )
+}

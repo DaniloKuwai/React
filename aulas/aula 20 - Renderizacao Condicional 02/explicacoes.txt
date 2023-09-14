@@ -12,6 +12,7 @@ export default props =>{
 
 nela vamos testar se props possui valor e vai retornar o valor de props.children(valor do filho)
 se não, não vamos retornar nada.
+esse if que criamos vai ser utilizado como um componente no próximo componente a ser criado que e o Usuarioinfo.jsx
 
 Após isso vamos criar o Usuarioinfo.jsx e nele vamos colocar o seguinte código:
 

@@ -1,4 +1,4 @@
-Nessa aula vamos começar a estudar renderização condicionar, para isso
+Nessa aula vamos começar a estudar renderização condicional, para isso
 vamos criar dentro de componentes uma pasta chamada condicional, dentro dela
 vamos criar um arquivo chamado ParOuImpar.jsx, nele vamos colocar a condicional
 
